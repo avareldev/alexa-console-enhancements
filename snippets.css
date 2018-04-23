@@ -1,0 +1,12 @@
+.snippets {
+    margin-bottom: 10px;
+}
+
+.snippet {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 10px 12px;
+    background-color: #fff;
+    cursor: pointer;
+}
