@@ -1,5 +1,12 @@
 var snippets = [];
 
+var historyButton = document.getElementById('reset-history');
+historyButton.addEventListener('click', function () {
+    chrome.storage.sync.set({
+        commandHistory: []
+    })
+});
+
 function saveSnippet() {
     console.log(snippets);
     chrome.storage.sync.set({
