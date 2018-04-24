@@ -1,22 +1,23 @@
+var storageArea = 'sync';
 var snippets = [];
 
 var historyButton = document.getElementById('reset-history');
 historyButton.addEventListener('click', function () {
-    chrome.storage.sync.set({
+    chrome.storage[storageArea].set({
         commandHistory: []
     })
 });
 
 function saveSnippet() {
     console.log(snippets);
-    chrome.storage.sync.set({
+    chrome.storage[storageArea].set({
         snippets: snippets
     });
 }
 
 function restoreOptions() {
     // Use default value color = 'red' and likesColor = true.
-    chrome.storage.sync.get({
+    chrome.storage[storageArea].get({
         snippets: []
     }, function (items) {
         var container = document.getElementById('snippets');

@@ -1,3 +1,4 @@
+var storageArea = 'sync';
 var tab = document.getElementById('astro-tabs-1-panel-0');
 var input = document.getElementsByClassName('askt-utterance__input')[0];
 var inputDiv = document.getElementsByClassName('askt-simulator__input')[0];
@@ -14,7 +15,7 @@ snippet.classList.add('snippets');
 var commandHistory = [];
 var currentPosition = 0;
 
-chrome.storage.sync.get({
+chrome.storage[storageArea].get({
     snippets: [],
     commandHistory: [],
     auto: false
@@ -24,7 +25,7 @@ chrome.storage.sync.get({
 
     autoSubmit.checked = items.auto;
     autoSubmit.addEventListener('click', function (e) {
-        chrome.storage.sync.set({
+        chrome.storage[storageArea].set({
             auto: this.checked
         });
     });
@@ -77,7 +78,7 @@ chrome.storage.sync.get({
 function addHistoryEntry(entry) {
     commandHistory.push(entry);
     currentPosition = commandHistory.length;
-    chrome.storage.sync.set({
+    chrome.storage[storageArea].set({
         commandHistory: commandHistory
     });
 }
