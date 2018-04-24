@@ -1,4 +1,4 @@
-var storageArea = 'sync';
+var storageArea = 'local';
 var tab = document.getElementById('astro-tabs-1-panel-0');
 var input = document.getElementsByClassName('askt-utterance__input')[0];
 var inputDiv = document.getElementsByClassName('askt-simulator__input')[0];
@@ -77,6 +77,9 @@ chrome.storage[storageArea].get({
 
 function addHistoryEntry(entry) {
     commandHistory.push(entry);
+    if (commandHistory.length > 20) {
+        commandHistory.shift();
+    }
     currentPosition = commandHistory.length;
     chrome.storage[storageArea].set({
         commandHistory: commandHistory

@@ -1,4 +1,4 @@
-var storageArea = 'sync';
+var storageArea = 'local';
 var snippets = [];
 
 var historyButton = document.getElementById('reset-history');
